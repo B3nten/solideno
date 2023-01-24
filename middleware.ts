@@ -26,6 +26,7 @@ export const serveStatic = (options: any = { root: "" }) => {
       root: options.root,
     });
     path = `/${path}`;
+    console.log("path", path);
     try {
       const response = await fetch(toFileUrl(path));
       const headers = new Headers(response.headers);
@@ -69,7 +70,13 @@ export const compiler = (options: { root: string }) => {
       const source = new TextDecoder().decode(bytes);
       try {
         const code = babel.transform(source, {
-          presets: [babelPresetTs, babelPresetSolid],
+          presets: [
+            babelPresetTs,
+            [
+              babelPresetSolid,
+              { generate: "dom", hydratable: true },
+            ],
+          ],
           filename: path,
         });
         console.log(code?.code);
