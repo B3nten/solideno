@@ -1,8 +1,8 @@
 {
-	"importMap": "./importMap.json",
-	"lock": false,
-	"compilerOptions": {
-		"jsx": "preserve",
-		"jsxImportSource": "solid-js"
-	}
+  "importMap": "./importMap.json",
+  "lock": false,
+  "compilerOptions": {
+    "jsx": "preserve",
+    "jsxImportSource": "solid-js"
+  }
 }
