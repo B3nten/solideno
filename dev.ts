@@ -22,7 +22,10 @@ async function transform(sourcepath: string, targetpath: string) {
   for await (const e of walk(sourcepath)) {
     if (e.isFile) {
       if (!e.path.endsWith(".ts") && !e.path.endsWith(".tsx")) {
-        await createFile(targetpath + "/" + e.path, await Deno.readTextFile(e.path));
+        await createFile(
+          targetpath + "/" + e.path,
+          await Deno.readTextFile(e.path),
+        );
         continue;
       }
       const src = await Deno.readTextFile(e.path);

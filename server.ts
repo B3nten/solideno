@@ -19,7 +19,7 @@ app.get(
 app.get(
   "/_compiler/*",
   compiler({
-    root: resolve(Deno.cwd(), "./.out"),
+    root: resolve(Deno.cwd(), "./"),
   }),
 );
 
